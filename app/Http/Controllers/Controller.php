@@ -9,5 +9,6 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
+		echo "134";
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }

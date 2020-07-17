@@ -42,4 +42,21 @@ class TestController extends Controller
         $data = $respose->getBody();
         echo $data;
     }
+    public function test3(){
+
+        echo "test3";
+    }
+    public function test4(){
+
+       $url = "http://www.blog.com/info";
+        $ponseon = file_get_contents($url);
+        var_dump($ponseon);
+    }
+    public function test5(Request $request){
+
+        $username = $request->post("username");
+        $password = $request->post("password");
+       echo $username;
+
+    }
 }

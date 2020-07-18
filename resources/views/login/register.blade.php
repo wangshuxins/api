@@ -21,6 +21,10 @@
         <input type="text" class="form-control" style="width:700px;" id="name" name="username" placeholder="请输入用户名">
     </div>
     <div class="form-group">
+        <label for="name">名称</label>
+        <input type="email" class="form-control" style="width:700px;" id="name" name="email" placeholder="请输入邮箱">
+    </div>
+    <div class="form-group">
         <label for="name">密码</label>
         <input type="password" class="form-control" style="width:700px" id="name" name="password" placeholder="请输入密码">
     </div>

@@ -21,6 +21,7 @@ Route::get("test3","TestController@test3");
 Route::get("test4","TestController@test4");
 Route::post("test5","TestController@test5");
 //登陆
-Route::any("/login","LoginController@login");
-Route::any("/register","LoginController@register");
+Route::post("/login","LoginController@login");
+Route::post("/register","LoginController@register");
+Route::get("/center","LoginController@center");
 

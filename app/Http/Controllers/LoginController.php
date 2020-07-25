@@ -13,7 +13,6 @@ class LoginController extends Controller
         $name = $request->post("name");
         $pass = $request->post("pass");
         $u = LoginModel::where(["username"=>$name])->first();
-
         if($u){
             //验证密码
             if(password_verify($pass,$u->password)){
@@ -127,30 +126,6 @@ class LoginController extends Controller
     }
     public function center(Request $request)
     {
-        $token = $request->get("token");
-        if (empty($token)) {
-            $response = [
-                "errno" => "40003",
-                "msg" => "未授权"
-            ];
-            return $response;
-        }
-        $t = TokenModel::where(["token"=>$token])->first();
-        if(empty($t)){
-            $response = [
-                "errno" => "40003",
-                "msg" => "token无效"
-            ];
-            return $response;
-        }
-        $user_info = LoginModel::find($t->uid);
-        $response = [
-            "errno" => 0,
-            "msg" => "ok",
-            "data"=>[
-                "user_info"=> $user_info
-            ]
-        ];
-        return $response;
+      echo "1234";
     }
 }

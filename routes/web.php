@@ -17,11 +17,15 @@ Route::get('/', function () {
 Route::get("test","TestController@test");
 Route::get("test1","TestController@test1");
 Route::get("test2","TestController@test2");
-Route::get("test3","TestController@test3");
+Route::post("test3","TestController@test3");
 Route::get("test4","TestController@test4");
-Route::post("test5","TestController@test5");
+Route::get("test5","TestController@test5");
+Route::any("dersa","TestController@dersa");
+Route::any("/decrypt","TestController@decrypt");
 //登陆
 Route::post("/login","LoginController@login");
 Route::post("/register","LoginController@register");
-Route::get("/center","LoginController@center");
+Route::get("/center","LoginController@center")->middleware("token");
+Route::get("sign","SignController@sign");
+Route::get("sign1","SignController@sign1");
 

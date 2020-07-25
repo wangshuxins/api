@@ -42,10 +42,6 @@ class TestController extends Controller
         $data = $respose->getBody();
         echo $data;
     }
-    public function test3(){
-
-        echo "test3";
-    }
     public function test4(){
 
        $url = "http://www.blog.com/info";
@@ -58,5 +54,31 @@ class TestController extends Controller
         $password = $request->post("password");
        echo $username;
 
+    }
+    public function test3(){
+        echo '<pre>';print_r($_POST);echo '</pre>';
+    }
+
+    public function decrypt(){
+
+//        echo '<pre>';print_r($_POST);echo '</pre>';
+        $method = "AES-256-CBC";
+        $key = "usr";
+        $iv = "aaaabbbbccccdddd";
+        $enc_data = $_POST["data"];
+        $d64_str = base64_decode($enc_data);
+        $dec_data = openssl_decrypt($d64_str,$method,$key,OPENSSL_RAW_DATA,$iv);
+        echo "解密:".$dec_data."<br>"."<hr>";
+    }
+    public function dersa(){
+        $enc_data = $_POST["data"];
+        $blog_pub_key = file_get_contents(storage_path("keys/blog_pub.key"));
+        openssl_public_decrypt($enc_data,$dec_data,$blog_pub_key);
+        ######################################################################
+        $data = "已收到";
+        $content = openssl_get_privatekey(file_get_contents(storage_path("keys/priv.key")));
+        $priv_key = openssl_get_privatekey($content);
+        openssl_private_encrypt($data,$enc_data,$priv_key);
+        echo $enc_data;
     }
 }

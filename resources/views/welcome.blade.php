@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   柯南1
+                   柯南
                 </div>
 
                 <div class="links">

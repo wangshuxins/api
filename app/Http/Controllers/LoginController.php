@@ -57,8 +57,6 @@ class LoginController extends Controller
         $username = $request->post("username");
         $email = $request->post("email");
         $password = $request->post("password");
-//        echo $password;echo "<hr/>";
-//        dd(password_hash($password,PASSWORD_BCRYPT));
         $repassword = $request->post("repassword");
 
         $login = LoginModel::where(["username"=>$username])->first();

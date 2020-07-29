@@ -27,7 +27,7 @@ class VerifAccessToken
             return response()->json($response);
         }
 
-        $t = TokenModel::where(["token"=>$token])->first();
+       $t= TokenModel::where(["token"=>$token])->first();
         if(empty($t)){
             $response = [
                 "errno" => "40003",
@@ -35,6 +35,7 @@ class VerifAccessToken
             ];
             return response()->json($response);
         }
+
         $user_info = LoginModel::find($t->uid);
         $response = [
             "errno" => 0,

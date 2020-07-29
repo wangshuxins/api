@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\VerifAccessToken;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Support\Facades\App;
 
 class Kernel extends HttpKernel
 {

@@ -28,4 +28,15 @@ Route::post("/register","LoginController@register");
 Route::get("/center","LoginController@center")->middleware("token");
 Route::get("sign","SignController@sign");
 Route::get("sign1","SignController@sign1");
+Route::get("hide","SignController@hide");
+//h5
+Route::any("/log","Index\LoginController@login");
+Route::any("/reg","Index\LoginController@register");
+Route::get("/error","Index\ErrorController@error");
+Route::get("/setting","Index\SettingController@setting");
+Route::get("/about","Index\AboutController@about");
+Route::get("/contact","Index\ContactController@contact");
+Route::get("/order","Index\OrderController@order");
+Route::get("/pay","Index\OrderController@pay");
+
 

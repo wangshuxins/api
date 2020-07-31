@@ -112,8 +112,6 @@
     </div>
 </div>
 <!-- end cart menu -->
-
-
 <!-- register -->
 <div class="pages section">
     <div class="container">

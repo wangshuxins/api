@@ -38,5 +38,6 @@ Route::get("/about","Index\AboutController@about");
 Route::get("/contact","Index\ContactController@contact");
 Route::get("/order","Index\OrderController@order");
 Route::get("/pay","Index\OrderController@pay");
+Route::get("/","Index\IndexController@index");
 
 

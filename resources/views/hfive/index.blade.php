@@ -255,7 +255,7 @@
             <div class="col s6">
                 <div class="content">
                     <img src=""  >
-                    <h6><a href="{{url('http://www.blog.com/detail/'.$v->goods_id)}}">{{$v->goods_name}}</a></h6>
+                    <h6><a href="{{url('/detail/'.$v->goods_id)}}">{{$v->goods_name}}</a></h6>
                     <div class="price">
                         ${{$v->shop_price*0.8}} <span>${{$v->shop_price}}</span>
                     </div>

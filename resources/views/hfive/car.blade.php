@@ -135,7 +135,7 @@
                         <h5>Name</h5>
                     </div>
                     <div class="col s7">
-                        <h5><a href="/detail">{{$v->name}}</a></h5>
+                        <h5><a href="{{url('/detail/'.$v->goods_id)}}">{{$v->name}}</a></h5>
                     </div>
                 </div>
                 <div class="row">

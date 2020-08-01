@@ -9,8 +9,8 @@ use App\Model\Car;
 class IndexController extends Controller
 {
     public function index(){
-        $goods = Goods::where("is_delete","=",0)->orderBy("goods_id","desc")->limit(6)->get();
-        $hot_goods = Goods::where("is_delete","=",0)->orderBy("click_count","desc")->limit(6)->get();
+        $goods = Goods::where("is_delete","=",1)->orderBy("goods_id","desc")->limit(6)->get();
+        $hot_goods = Goods::where("is_delete","=",1)->orderBy("click_count","desc")->limit(6)->get();
         return view("hfive.index",compact("goods","hot_goods"));
     }
     public function goshop($goods_id){

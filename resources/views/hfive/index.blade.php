@@ -13,7 +13,7 @@
                     <div class="cart-1">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu1.png" alt="">
+                                <img src="/static/img/cart-menu1.png" alt="">
                             </div>
                             <div class="col s7">
                                 <h5><a href="">Fashion Men's</a></h5>
@@ -48,7 +48,7 @@
                     <div class="cart-2">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu2.png" alt="">
+                                <img src="/static/img/cart-menu2.png" alt="">
                             </div>
                             <div class="col s7">
                                 <h5><a href="">Fashion Men's</a></h5>
@@ -118,7 +118,7 @@
 
     <ul class="slides">
         <li>
-            <img src="img/slide1.jpg" alt="">
+            <img src="/static/img/slide1.jpg" alt="">
             <div class="caption slider-content  center-align">
                 <h2>WELCOME TO MSTORE</h2>
                 <h4>Lorem ipsum dolor sit amet.</h4>
@@ -126,7 +126,7 @@
             </div>
         </li>
         <li>
-            <img src="img/slide2.jpg" alt="">
+            <img src="/static/img/slide2.jpg" alt="">
             <div class="caption slider-content center-align">
                 <h2>JACKETS BUSINESS</h2>
                 <h4>Lorem ipsum dolor sit amet.</h4>
@@ -134,7 +134,7 @@
             </div>
         </li>
         <li>
-            <img src="img/slide3.jpg" alt="">
+            <img src="/static/img/slide3.jpg" alt="">
             <div class="caption slider-content center-align">
                 <h2>FASHION SHOP</h2>
                 <h4>Lorem ipsum dolor sit amet.</h4>
@@ -214,7 +214,7 @@
             @foreach($goods as $v)
             <div class="col s6">
                 <div class="content">
-                    <img src="{{$v->goods_img}}" >
+                    <img src="{{env("UPLOADS_URL")}}{{$v->goods_img}}" >
                     <h6><a href="{{url('/detail/'.$v->goods_id)}}">{{$v->goods_name}}</a></h6>
                     <div class="price">
                         ${{$v->shop_price*0.8}} <span>${{$v->shop_price}}</span>
@@ -254,7 +254,7 @@
                @foreach($hot_goods as $v)
             <div class="col s6">
                 <div class="content">
-                    <img src=""  >
+                    <img src="{{env("UPLOADS_URL")}}{{$v->goods_img}}"  >
                     <h6><a href="{{url('/detail/'.$v->goods_id)}}">{{$v->goods_name}}</a></h6>
                     <div class="price">
                         ${{$v->shop_price*0.8}} <span>${{$v->shop_price}}</span>

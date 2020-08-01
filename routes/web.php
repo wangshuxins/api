@@ -41,6 +41,7 @@ Route::get("/pay","Index\OrderController@pay");
 Route::get("/","Index\IndexController@index");
 Route::get("/car","Index\CarController@car");
 Route::get("/detail/{goods_id}","Index\DetailController@detail");
+Route::get("/oauth/github","GithubController@git");
 
 
 

@@ -6,7 +6,7 @@
     <div class="container">
 
         <div class="shop-single">
-            <img src="img/shop-single.png" alt="">
+            <img src="{{env("UPLOADS_URL")}}{{$detail->goods_img}}" alt="">
             <h5>{{$detail->goods_name}}</h5>
             <div class="price">${{$detail->shop_price*0.8}} <span>${{$detail->shop_price}}</span></div>
             <p>{{$detail->goods_desc}}</p>

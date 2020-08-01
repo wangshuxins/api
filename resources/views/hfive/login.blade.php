@@ -13,7 +13,7 @@
                     <div class="cart-1">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu1.png" alt="">
+                                <img src="/static/img/cart-menu1.png" alt="">
                             </div>
                             <div class="col s7">
                                 <h5><a href="">Fashion Men's</a></h5>
@@ -48,7 +48,7 @@
                     <div class="cart-2">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu2.png" alt="">
+                                <img src="/static/img/cart-menu2.png" alt="">
                             </div>
                             <div class="col s7">
                                 <h5><a href="">Fashion Men's</a></h5>
@@ -129,6 +129,8 @@
                         <input type="password" name="password" class="validate" placeholder="PASSWORD" required>
                     </div>
                     <a href="{{url("/reg")}}"><h6>Forgot Password ?</h6></a>
+                    <a style="float:right" href="https://github.com/login/oauth/authorize?client_id=
+d2aa5c8ab674887a35f4&redirect_uri=http://1911wsx.comcto.com/oauth/github"><h6>Github授权</h6></a>
                     <button class="btn button-default">LOGIN</button>
                 </form>
             </div>

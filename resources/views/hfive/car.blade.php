@@ -13,7 +13,7 @@
                     <div class="cart-1">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu1.png" alt="">
+                                <img src="/static/img/cart-menu1.png" alt="">
                             </div>
                             <div class="col s7">
                                 <h5><a href="">Fashion Men's</a></h5>
@@ -48,7 +48,7 @@
                     <div class="cart-2">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu2.png" alt="">
+                                <img src="/static/img/cart-menu2.png" alt="">
                             </div>
                             <div class="col s7">
                                 <h5><a href="">Fashion Men's</a></h5>
@@ -120,14 +120,16 @@
             <h3>CART</h3>
         </div>
         <div class="content">
+
             @foreach($car as $v)
             <div class="cart-1">
                 <div class="row">
+
                     <div class="col s5">
                         <h5>Image</h5>
                     </div>
                     <div class="col s7">
-                        <img src="img/cart1.png">
+                        <img width="100px" height="100px" src="{{env('UPLOADS_URL')}}{{$v->image}}">
                     </div>
                 </div>
                 <div class="row">

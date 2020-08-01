@@ -1,5 +1,5 @@
 @extends('lyouts.all')
-@section('title',"首页")
+@section('title',"购物车")
 @section('content')
         <!-- cart menu -->
 <div class="menus" id="animatedModal">
@@ -113,164 +113,68 @@
 </div>
 <!-- end cart menu -->
 
-<!-- slider -->
-<div class="slider">
-
-    <ul class="slides">
-        <li>
-            <img src="img/slide1.jpg" alt="">
-            <div class="caption slider-content  center-align">
-                <h2>WELCOME TO MSTORE</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
-        <li>
-            <img src="img/slide2.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>JACKETS BUSINESS</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
-        <li>
-            <img src="img/slide3.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>FASHION SHOP</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
-    </ul>
-
-</div>
-<!-- end slider -->
-
-<!-- features -->
-<div class="features section">
+<!-- cart -->
+<div class="cart section">
     <div class="container">
-        <div class="row">
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-car"></i>
-                    </div>
-                    <h6>Free Shipping</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-dollar"></i>
-                    </div>
-                    <h6>Money Back</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                </div>
-            </div>
+        <div class="pages-head">
+            <h3>CART</h3>
         </div>
-        <div class="row margin-bottom-0">
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-lock"></i>
+        <div class="content">
+            @foreach($car as $v)
+            <div class="cart-1">
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Image</h5>
                     </div>
-                    <h6>Secure Payment</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    <div class="col s7">
+                        <img src="img/cart1.png">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Name</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5><a href="/detail">{{$v->name}}</a></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Quantity</h5>
+                    </div>
+                    <div class="col s7">
+                        <input type="text" value="{{$v->quantity}}" style="width:100px">
+                        {{--<input type="text" value="{{$v->quantity}}">--}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Price</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5>${{$v->price}}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Action</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5><i class="fa fa-trash">{{$v->is_delete==1?"删除":""}}</i></h5>
+                    </div>
+
                 </div>
             </div>
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-support"></i>
-                    </div>
-                    <h6>24/7 Support</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                <div>
+                    <hr>
+                    <br>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end features -->
-
-<!-- quote -->
-<div class="section quote">
-    <div class="container">
-        <h4>FASHION UP TO 50% OFF</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus illo hic iure eveniet</p>
-    </div>
-</div>
-<!-- end quote -->
-
-<!-- product -->
-<div class="section product">
-    <div class="container">
-        <div class="section-head">
-            <h4>NEW PRODUCT</h4>
-            <div class="divider-top"></div>
-            <div class="divider-bottom"></div>
-        </div>
-        <div class="row">
-            @foreach($goods as $v)
-            <div class="col s6">
-                <div class="content">
-                    <img src="{{$v->goods_img}}" >
-                    <h6><a href="{{url('/detail/'.$v->goods_id)}}">{{$v->goods_name}}</a></h6>
-                    <div class="price">
-                        ${{$v->shop_price*0.8}} <span>${{$v->shop_price}}</span>
-                    </div>
-                    <a href="{{url('http://www.blog.com/goshop/'.$v->goods_id)}}" class="btn button-default">加入购物车</a>
-                </div>
-                <br>
-            </div>
-
            @endforeach
         </div>
+        <a class="btn button-default">确认结算</a>
     </div>
 </div>
-<!-- end product -->
-
-<!-- promo -->
-<div class="promo section">
-    <div class="container">
-        <div class="content">
-            <h4>PRODUCT BUNDLE</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-            <button class="btn button-default">SHOP NOW</button>
-        </div>
-    </div>
-</div>
-<!-- end promo -->
-
-<!-- product -->
-<div class="section product">
-    <div class="container">
-        <div class="section-head">
-            <h4>TOP PRODUCT</h4>
-            <div class="divider-top"></div>
-            <div class="divider-bottom"></div>
-        </div>
-        <div class="row">
-               @foreach($hot_goods as $v)
-            <div class="col s6">
-                <div class="content">
-                    <img src=""  >
-                    <h6><a href="{{url('http://www.blog.com/detail/'.$v->goods_id)}}">{{$v->goods_name}}</a></h6>
-                    <div class="price">
-                        ${{$v->shop_price*0.8}} <span>${{$v->shop_price}}</span>
-                    </div>
-                    <a href="{{url('http://www.blog.com/goshop/'.$v->goods_id)}}" class="btn button-default">加入购物车</a>
-                </div>
-                <br>
-            </div>
-            @endforeach
-        </div>
-
-
-
-    </div>
-</div>
-<!-- end product -->
+<!-- end cart -->
 
 <!-- loader -->
 <div id="fakeLoader"></div>

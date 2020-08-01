@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 Route::get("test","TestController@test");
 Route::get("test1","TestController@test1");
 Route::get("test2","TestController@test2");
@@ -39,5 +39,8 @@ Route::get("/contact","Index\ContactController@contact");
 Route::get("/order","Index\OrderController@order");
 Route::get("/pay","Index\OrderController@pay");
 Route::get("/","Index\IndexController@index");
+Route::get("/car","Index\CarController@car");
+Route::get("/detail/{goods_id}","Index\DetailController@detail");
+
 
 

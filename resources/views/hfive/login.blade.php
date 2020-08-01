@@ -129,8 +129,7 @@
                         <input type="password" name="password" class="validate" placeholder="PASSWORD" required>
                     </div>
                     <a href="{{url("/reg")}}"><h6>Forgot Password ?</h6></a>
-                    <a style="float:right" href="https://github.com/login/oauth/authorize?client_id=
-d2aa5c8ab674887a35f4&redirect_uri=http://www.1911.com/oauth/github"><h6>Github授权</h6></a>
+                    <a style="float:right" href="https://github.com/login/oauth/authorize?client_id=d2aa5c8ab674887a35f4&redirect_uri=http://www.1911.com/oauth/github"><h6>Github授权</h6></a>
                     <button class="btn button-default">LOGIN</button>
                 </form>
             </div>

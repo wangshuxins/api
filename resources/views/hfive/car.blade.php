@@ -125,7 +125,7 @@
             <div class="cart-1">
                 <div class="row">
 
-                    <div class="col s5">
+                    <div class="col s5" id="num" goods_number="{{$v->goods_number}}">
                         <h5>Image</h5>
                     </div>
                     <div class="col s7">
@@ -145,7 +145,7 @@
                         <h5>Quantity</h5>
                     </div>
                     <div class="col s7">
-                        <input type="text" value="{{$v->quantity}}" style="width:100px">
+                        <input  class="kuang" type="text" value="{{$v->quantity}}" style="width:100px">
                         {{--<input type="text" value="{{$v->quantity}}">--}}
                     </div>
                 </div>
@@ -181,4 +181,23 @@
 <!-- loader -->
 <div id="fakeLoader"></div>
 <!-- end loader -->
+<script>
+$(document).on("blur",".kuang",function(){
+    var _this = $(this);
+    var text = _this.val();
+    var goods_number = parseInt($("#num").attr("goods_number"));
+
+   if(text==''){
+       _this.val(1);
+       alert("购买数量不能为空!");return;
+   }else if(!(/^[1-9][0-9]{0,6}$/.test(text))){
+       _this.val(1);
+       alert("请填写正确的购买数量!");return;
+   }else if(text>goods_number){
+       _this.val(goods_number);
+       alert("库存不足!");return;
+   }
+
+})
+</script>
 @endsection

@@ -20,7 +20,7 @@ class IndexController extends Controller
              "image"=>$goods->goods_img,
              "quantity"=>$goods->goods_number,
              "price"=>$goods->shop_price,
-             "goods_id"=>$goods->goods_id
+             "goods_id"=>$goods->goods_id,
          ];
 
         $car = new Car();

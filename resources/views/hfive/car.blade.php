@@ -129,7 +129,7 @@
                         <h5>Image</h5>
                     </div>
                     <div class="col s7">
-                        <img width="100px" height="100px" src="{{env('UPLOADS_URL')}}{{$v->image}}">
+                        <img style="width:300px;height:200px" src="{{env('UPLOADS_URL')}}{{$v->image}}">
                     </div>
                 </div>
                 <div class="row">

@@ -124,7 +124,6 @@
             @foreach($car as $v)
             <div class="cart-1" id="div_id">
                 <div class="row" >
-
                     <div class="col s5"  >
                         <h5>Image</h5>
                     </div>
@@ -171,10 +170,12 @@
                     <br>
                 </div>
             </div>
-
            @endforeach
         </div>
-        <a class="btn button-default">确认结算</a>
+        <div id="total_id">
+             <h5>总价:￥<font color="#ff4500">100</font></h5>
+             <a class="btn button-default">确认结算</a>
+        </div>
     </div>
 </div>
 <!-- end cart -->
@@ -183,6 +184,7 @@
 <div id="fakeLoader"></div>
 <!-- end loader -->
 <script>
+    //文本框
 $(document).on("blur",".kuang",function(){
      _this = $(this);
     var text = _this.val();
@@ -211,6 +213,7 @@ $(document).on("blur",".kuang",function(){
         }
     })
 })
+    //删除某一个商品
     $(document).on("click",".del",function(){
         _this = $(this);
         var text = _this.val();

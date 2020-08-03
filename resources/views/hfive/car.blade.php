@@ -119,13 +119,13 @@
         <div class="pages-head">
             <h3>CART</h3>
         </div>
-        <div class="content">
+        <div class="content" >
 
             @foreach($car as $v)
-            <div class="cart-1">
-                <div class="row">
+            <div class="cart-1" id="div_id">
+                <div class="row" >
 
-                    <div class="col s5" id="num" goods_number="{{$v->goods_number}}">
+                    <div class="col s5"  >
                         <h5>Image</h5>
                     </div>
                     <div class="col s7">
@@ -140,12 +140,12 @@
                         <h5><a href="{{url('/detail/'.$v->goods_id)}}">{{$v->name}}</a></h5>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="price">
                     <div class="col s5">
                         <h5>Quantity</h5>
                     </div>
                     <div class="col s7">
-                        <input  class="kuang" type="text" value="{{$v->quantity}}" style="width:100px">
+                        <input  class="kuang" goods_number="{{$v->goods_number}}" goods_id="{{$v->goods_id}}" type="text" value="{{$v->quantity}}" style="width:100px">
                         {{--<input type="text" value="{{$v->quantity}}">--}}
                     </div>
                 </div>
@@ -162,15 +162,16 @@
                         <h5>Action</h5>
                     </div>
                     <div class="col s7">
-                        <h5><i class="fa fa-trash">{{$v->is_delete==1?"删除":""}}</i></h5>
+                        <h5><i class="fa fa-trash del"  goods_id="{{$v->goods_id}}">删除</i></h5>
                     </div>
 
                 </div>
-            </div>
                 <div>
                     <hr>
                     <br>
                 </div>
+            </div>
+
            @endforeach
         </div>
         <a class="btn button-default">确认结算</a>
@@ -183,11 +184,11 @@
 <!-- end loader -->
 <script>
 $(document).on("blur",".kuang",function(){
-    var _this = $(this);
+     _this = $(this);
     var text = _this.val();
-    var goods_number = parseInt($("#num").attr("goods_number"));
-
-   if(text==''){
+    var goods_number = parseInt(_this.attr("goods_number"));
+    var goods_id = _this.attr("goods_id");
+    if(text==''){
        _this.val(1);
        alert("购买数量不能为空!");return;
    }else if(!(/^[1-9][0-9]{0,6}$/.test(text))){
@@ -197,7 +198,35 @@ $(document).on("blur",".kuang",function(){
        _this.val(goods_number);
        alert("库存不足!");return;
    }
-
+    $.ajax({
+        type:"get",
+        dataType:"json",
+        url:"http://www.blog.com/car",
+        data:{"goods_id":goods_id,"goods_number":text},
+        async:false,
+        success:function(res){
+         if(res.error_no==0){
+               _this.parents("#price").next().children().next().text("$"+res.price);
+         }
+        }
+    })
 })
+    $(document).on("click",".del",function(){
+        _this = $(this);
+        var text = _this.val();
+        var goods_id = _this.attr("goods_id");
+        $.ajax({
+            type:"get",
+            dataType:"json",
+            url:"http://www.blog.com/del",
+            data:{"goods_id":goods_id},
+            success:function(res){
+                if(res.error_no==0){
+                 _this.parents("#div_id").remove();
+                }
+            }
+        })
+    });
+
 </script>
 @endsection

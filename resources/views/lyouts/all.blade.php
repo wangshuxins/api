@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/static/css/animate.css">
     <link rel="stylesheet" href="/static/css/style.css">
 
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="/static/img/favicon.png">
 
 </head>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->

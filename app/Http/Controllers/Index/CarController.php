@@ -8,7 +8,7 @@ use App\Model\Car;
 class CarController extends Controller
 {
    public function car(){
-     $car = Car::where("is_delete",1)->orderBy("time","desc")->get();
+     $car = Car::orderBy("time","desc")->get();
      return view("hfive.car",compact("car"));
    }
 }

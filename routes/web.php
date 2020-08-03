@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get("test","TestController@test");
 Route::get("test1","TestController@test1");
 Route::get("test2","TestController@test2");
@@ -41,6 +39,7 @@ Route::get("/pay","Index\OrderController@pay");
 Route::get("/car","Index\CarController@car");
 Route::get("/detail/{goods_id}","Index\DetailController@detail");
 Route::get("/oauth/github","Index\GithubController@git");
+Route::get("/","Index\IndexController@index");
 
 
 

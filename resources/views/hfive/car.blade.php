@@ -154,7 +154,7 @@
                         <h5>Price</h5>
                     </div>
                     <div class="col s7">
-                        <h5>${{$v->price}}</h5>
+                        <h5>￥{{$v->price}}</h5>
                     </div>
                 </div>
                 <div class="row">
@@ -206,7 +206,7 @@ $(document).on("blur",".kuang",function(){
         async:false,
         success:function(res){
          if(res.error_no==0){
-               _this.parents("#price").next().children().next().text("$"+res.price);
+               _this.parents("#price").next().children().next().html("<h5>￥"+res.price+"</h5>");
          }
         }
     })

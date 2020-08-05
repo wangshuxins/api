@@ -172,9 +172,9 @@
             </div>
            @endforeach
         </div>
-        <div id="total_id">
-             <h5>总价:￥<font color="#ff4500">100</font></h5>
-             <a class="btn button-default">确认结算</a>
+        <div >
+             <h5>总价:￥<font color="#ff4500">{{$goods_total}}</font></h5>
+             <a href="{{url('/order/'.$goods_total)}}" class="btn button-default">确认结算</a>
         </div>
     </div>
 </div>

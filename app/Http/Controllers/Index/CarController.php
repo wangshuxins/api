@@ -8,7 +8,8 @@ use App\Model\Car;
 class CarController extends Controller
 {
    public function car(){
-     $car = Car::orderBy("time","desc")->get();
-     return view("hfive.car",compact("car"));
+       $car = Car::orderBy("time","desc")->get();
+       $goods_total = Car::sum("price");
+     return view("hfive.car",compact("car","goods_total"));
    }
 }

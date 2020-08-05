@@ -103,7 +103,7 @@
                     </a>
                 </div>
                 <div class="col s4">
-                    <a href="product-list.html" class="button-link">
+                    <a href="{{url('/order')}}" class="button-link">
                         <div class="menu-link">
                             <div class="icon">
                                 <i class="fa fa-bars"></i>

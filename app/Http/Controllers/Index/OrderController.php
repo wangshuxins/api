@@ -5,13 +5,29 @@ namespace App\Http\Controllers\Index;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Model\Order AS OrderModel;
 class OrderController extends Controller
 {
-    public function order(){
-        return view("hfive.order");
+    public function order($goods_total){
+       if($goods_total){
+           $order = new OrderModel();
+           $sn = Str::random(10);
+           $data = [
+               "goods_dotail"=>$goods_total,
+               "goods_sn"=>$sn,
+               "time"=>time()
+           ];
+           $totail = $order::insert($data);
+           $count=OrderModel::orderBy("oid","desc")->count();
+           if($totail){
+               $orders=OrderModel::orderBy("oid","desc")->first();
+               return view("hfive.order",compact("orders"));
+           }
+       }
+
     }
     public function pay(request $request){
-        $oid = $request->get("oid");
+        $order_id = $request->get("order_id");
         //echo "订单ID:".$oid;
         //1请求参数
         $param2 = [
@@ -24,7 +40,7 @@ class OrderController extends Controller
         $param1 = [
             'app_id'    => '2016102200739406',
             'method'    => 'alipay.trade.page.pay',
-            'return_url'=>'http://www.1911.com/alipay/return',
+            'return_url'=>'http://www.1911.com/car',
             'charset'   => 'utf-8',
             'sign_type' => 'RSA2',
             'timestamp' => date('Y-m-d H:i:s'),

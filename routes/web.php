@@ -34,7 +34,7 @@ Route::get("/error","Index\ErrorController@error");
 Route::get("/setting","Index\SettingController@setting");
 Route::get("/about","Index\AboutController@about");
 Route::get("/contact","Index\ContactController@contact");
-Route::get("/order","Index\OrderController@order");
+Route::get("/order/{goods_total}","Index\OrderController@order");
 Route::get("/pay","Index\OrderController@pay");
 Route::get("/car","Index\CarController@car");
 Route::get("/detail/{goods_id}","Index\DetailController@detail");

@@ -117,30 +117,16 @@
 <div class="slider">
 
     <ul class="slides">
+        @foreach($huandeng as $v)
         <li>
-            <img src="/static/img/slide1.jpg" alt="">
+            <img src="{{env("UPLOADS_URL")}}{{$v->goods_img}}" alt="">
             <div class="caption slider-content  center-align">
-                <h2>WELCOME TO MSTORE</h2>
+                <h2>欢迎来到 MSTORE</h2>
                 <h4>Lorem ipsum dolor sit amet.</h4>
                 <a href="" class="btn button-default">SHOP NOW</a>
             </div>
         </li>
-        <li>
-            <img src="/static/img/slide2.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>JACKETS BUSINESS</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
-        <li>
-            <img src="/static/img/slide3.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>FASHION SHOP</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
+       @endforeach
     </ul>
 
 </div>
